@@ -1,0 +1,43 @@
+<div class="span7 text-center" ng-animate>
+    <div class="top-block " ng-hide="gameOver||gameFinished">
+        <div id="question" ng-switch on="currentQuestion.answered">
+            <div class="panel panel-default question-out" style="background-color:{{currentQuestion.category.color}}; height: 100px;" ng-switch-when="false" >
+                <div class="panel-body">
+                    <p ><b>Q{{numberOfQuestionsAnswered}}: {{currentQuestion.question}}</b></p>
+                </div>
+            </div>
+            <div class="panel panel-default question-in" style="background-color:'#fff'; height=100px;" ng-switch-when="true">
+                <div class="panel-body">
+                    <p ><b>Question answered</b></p>
+                </div>
+            </div>
+
+        </div>
+        <div id="pin-location">
+	       <b>Pin dropped at: </b>{{city}} {{country}}
+        </div>
+        <div id="score">
+            <p><b>Score:</b> {{score}} km</p>
+            </br>
+            <div class="span7 text-center">
+                <button ng-click="submitAnswer()" ng-show="proba" class="btn btn-primary">Submit answer</button>
+                <button ng-click = "nextQuestion()" ng-show="!proba" class="btn btn-primary">Next question</button>
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="game-over" ng-show="gameOver">
+    <div class="span7 text-center">
+        <h1 style="visibility: visible;">Game over</h1>
+    	<p>Questions answered: {{numberOfQuestionsAnswered}}</p>
+    	<button ng-click = "reloadGame()" class="btn btn-primary">Play again</button>
+    </div>
+</div>
+<div class="game-over" ng-show="gameFinished">
+    <div class="span7 text-center">
+        <h1 style="visibility: visible;">You won!</h1>
+        <p>Questions answered: {{numberOfQuestionsAnswered-1}}</p>
+        <p>Score: {{score}}</p>
+        <button ng-click = "reloadGame()" class="btn btn-primary">Play again</button>
+    </div>
+</div>

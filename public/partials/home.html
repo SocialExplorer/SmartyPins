@@ -1,0 +1,17 @@
+<div class="categories-block">
+	<div class="panel panel-default">
+		<div class="panel-heading text-center">
+			<h4 style="visibility: visible;">Choose a category: </h4>
+		</div>
+		<div class="panel-body center">
+			<div class="btn-group-vertical col-md-4" id="categories" category-add>
+				<div class = "category-button" ng-repeat="category in categories"> 
+					<a href="#/game/{{category.id}}" type="button" class="btn btn-default btn-lg" style="background-color:{{category.color}};" id="category">{{category.name}}</a>
+					<br>
+					<br>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
